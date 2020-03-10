@@ -1,0 +1,206 @@
+*{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+body {
+        
+        background-color: black;
+        
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "playerContainer"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 50px;
+    
+
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    max-width: 1200px;
+}
+
+.pageHeader{
+    grid-area: header;
+    border: 3px solid white;
+    font-size: 40pt;
+    text-align: center;
+    padding: 15px;
+    
+}
+
+.playerContainer{
+    grid-area: playerContainer;
+    display: grid;
+    grid-template-areas: 
+    "firstPlayer secondPlayer";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    box-sizing: border-box;
+}
+
+.firstPlayer, .secondPlayer{
+    font-size: 30pt;
+    text-align: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-areas: 
+    "labelBoard"
+    "mainBoard"
+    "buttonPrepared";
+    grid-template-columns: 1fr;
+    
+}
+
+.firstPlayer{
+    grid-area: firstPlayer;
+    padding: 20px 35px 20px 0;
+}
+
+.secondPlayer{
+    grid-area: secondPlayer;
+    padding: 20px 0 20px 35px;
+
+}
+.buttonPrepared{
+    grid-area: buttonPrepared;
+
+    
+}
+
+.pageFooter{
+    grid-area: footer;
+}
+
+.labelBoard{
+    grid-area: labelBoard;
+    
+}
+.board{
+    grid-area: mainBoard;
+
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 3.2vw);
+
+    justify-content: center;
+
+    margin: 10px 0;
+}
+
+
+.el{
+    border: 1px solid white;
+}
+
+.buttonPrepared, .labelBoard, .restart-btn{
+    font-size: 30pt;
+    border: 3px solid white;
+    height: fit-content;
+
+    background: none;
+}
+
+
+.ship{
+    background: url(src/ship.png);
+}
+
+.kill{
+    background: url(src/kill.png);
+}
+
+.hit{
+    background: url(src/hit.png);
+}
+
+.miss{
+    background: url(src/miss.png);
+}
+.ship, .kill, .miss, .hit{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.opacity{
+    background: black;
+}
+
+.hide{
+    display: none;
+}
+
+.modal{
+    height: 100vh;
+    width: 100vw;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(00, 00, 00, 0.7);
+
+    position: absolute;
+    z-index: 0;
+}
+
+.modal-window{
+    position: relative;
+    z-index: 1;
+    height: 30vh;
+    width: 30vw;
+    background-color: black;
+    border: 3px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    font-size: 30pt;
+
+}
+
+.restart-btn{
+    margin-top: 50px;
+}
+
+@media (max-width: 1200px){
+    .container{
+        max-width: 970px;
+    }
+}
+@media (max-width: 1000px){
+    .container{
+        max-width: 750px;
+    }
+    .playerContainer{
+        grid-template-areas: 
+        "firstPlayer"
+        "secondPlayer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .firstPlayer, .secondPlayer{
+        padding: 0;
+        margin-top: 10px;
+    }
+}
